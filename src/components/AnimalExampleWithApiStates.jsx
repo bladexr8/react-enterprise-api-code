@@ -1,18 +1,20 @@
 import { fetchDog } from '@/api/animal.api'
 import { useEffect, useState } from 'react'
 
+import { withAsync } from '@/helpers/withAsync'
+
 const useFetchDog = () => {
   const [dog, setDog] = useState()
   const [fetchDogStatus, setFetchDogStatus] = useState('IDLE')
 
   const initFetchDog = async () => {
-    try {
-      setFetchDogStatus('PENDING')
-      const response = await fetchDog()
+    setFetchDogStatus('PENDING')
+    const { response, error } = await withAsync(() => fetchDog())
+    if (error) {
+      setFetchDogStatus('ERROR')
+    } else if (response) {
       setDog(response.data.message)
       setFetchDogStatus('SUCCESS')
-    } catch (error) {
-      setFetchDogStatus('ERROR')
     }
   }
 
