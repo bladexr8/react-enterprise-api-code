@@ -3,14 +3,15 @@ import style from './App.module.css'
 // import AnimalExample from '@/components/AnimalExample'
 //import AnimalExampleWithApiStates from './components/AnimalExampleWithApiStates'
 //import AnimalExampleWithApiStatesConstants from './components/AnimalExampleWithApiStatesConstants'
-import AnimalExampleWithUseApiStatus from './components/AnimalExampleWithUseApiStatus'
+//import AnimalExampleWithUseApiStatus from './components/AnimalExampleWithUseApiStatus'
+import AnimalExampleWithUseApi from './components/AnimalExampleWithUseApi'
 import Logo from './components/Logo'
 
 function App() {
   return (
     <div className="container flex  flex-col min-h-screen gap-8 p-4 mx-auto">
       <Logo />
-      <AnimalExampleWithUseApiStatus />
+      <AnimalExampleWithUseApi />
     </div>
   )
 }
